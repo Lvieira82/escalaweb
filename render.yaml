@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: escala-web
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn escala_project.wsgi"
+    envVars:
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        generateValue: true
